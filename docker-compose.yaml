@@ -1,0 +1,47 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub:4.1.0
+    ports:
+      - "4444:4444"
+  chrome:
+    image: selenium/node-chrome:4.1.0
+    shm_size: '2g'
+    depends_on:
+      - hub
+    environment:
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+  firefox:
+    image: selenium/node-firefox:4.1.0
+    shm_size: '2g'
+    depends_on:
+      - hub
+    environment:
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+  PurchaseTest:
+    image: aviraj047/selenium-docker
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=firefox
+      - HUB_HOST=hub
+      - MODULE=purchase.xml
+    volumes:
+      - //mnt/c/Users/Admin/IdeaProjects/selenium-docker/purchase-results:/usr/share/udemy/test-output
+  SalesTest:
+    image: aviraj047/selenium-docker
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=firefox
+      - HUB_HOST=hub
+      - tote=tote-828
+      - MODULE=sales.xml
+    volumes:
+      - //mnt/c/Users/Admin/IdeaProjects/selenium-docker/sales-results:/usr/share/udemy/test-output
