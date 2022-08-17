@@ -1,5 +1,5 @@
 pipeline{
-    agent any{
+    agent any
         stages{
             stage("Start Grid"){
                 steps{
@@ -17,5 +17,4 @@ pipeline{
                 }
             }
         }
-    }
 }
