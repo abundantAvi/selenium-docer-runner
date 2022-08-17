@@ -30,7 +30,7 @@ services:
       - HUB_HOST=hub
       - MODULE=purchase.xml
     volumes:
-      - ./output/purchase-results:/usr/share/myFolder/test-output
+      - ./output1/purchase-results:/usr/share/myFolder/test-output
   SalesTest:
     image: aviraj047/selenium-docker
     depends_on:
@@ -42,4 +42,4 @@ services:
       - tote=tote-828
       - MODULE=sales.xml
     volumes:
-      - ./output/sales-results:/usr/share/myFolder/test-output
+      - ./output1/sales-results:/usr/share/myFolder/test-output
