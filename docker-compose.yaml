@@ -39,7 +39,7 @@ services:
     environment:
       - BROWSER=firefox
       - HUB_HOST=hub
-      - tote=tote-833
+      - tote=tote-834
       - MODULE=sales.xml
     volumes:
       - ./output1/sales-results:/usr/share/myFolder/test-output
