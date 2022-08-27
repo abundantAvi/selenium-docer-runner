@@ -43,3 +43,14 @@ services:
       - MODULE=sales.xml
     volumes:
       - ./output1/sales-results:/usr/share/myFolder/test-output
+InventoryAdjustTest:
+    image: aviraj047/selenium-docker
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=firefox
+      - HUB_HOST=hub
+      - MODULE=inventory.xml
+    volumes:
+      - ./output1/inventory-results:/usr/share/myFolder/test-output
