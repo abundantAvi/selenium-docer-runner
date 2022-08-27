@@ -43,7 +43,7 @@ services:
       - MODULE=sales.xml
     volumes:
       - ./output1/sales-results:/usr/share/myFolder/test-output
-InventoryAdjustTest:
+  InventoryAdjustTest:
     image: aviraj047/selenium-docker
     depends_on:
       - chrome
