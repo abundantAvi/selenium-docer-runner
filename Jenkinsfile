@@ -13,7 +13,7 @@ pipeline{
             }
             stage("Run Test"){
                 steps{
-                    sh "docker-compose up  PurchaseTest SalesTest InventoryAdjustTest"
+                    sh "docker-compose up  PurchaseTest SalesTest InventoryAdjustTest NewContainerTest"
                 }
             }
         }
