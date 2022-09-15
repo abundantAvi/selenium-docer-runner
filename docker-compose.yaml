@@ -64,7 +64,7 @@ services:
       - HUB_HOST=hub
       - MODULE=containers.xml
     volumes:
-      - ./output1/inventory-results:/usr/share/myFolder/test-output
+      - ./output1/containers-results:/usr/share/myFolder/test-output
   ShipmentPageTest:
     image: aviraj047/selenium-docker
     depends_on:
@@ -75,4 +75,4 @@ services:
       - HUB_HOST=hub
       - MODULE=shipment.xml
     volumes:
-      - ./output1/inventory-results:/usr/share/myFolder/test-output
+      - ./output1/shipment-results:/usr/share/myFolder/test-output
