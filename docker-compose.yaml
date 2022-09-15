@@ -65,3 +65,14 @@ services:
       - MODULE=containers.xml
     volumes:
       - ./output1/inventory-results:/usr/share/myFolder/test-output
+  ShipmentPageTest:
+    image: aviraj047/selenium-docker
+    depends_on:
+      - chrome
+      - firefox
+    environment:
+      - BROWSER=firefox
+      - HUB_HOST=hub
+      - MODULE=shipment.xml
+    volumes:
+      - ./output1/inventory-results:/usr/share/myFolder/test-output
